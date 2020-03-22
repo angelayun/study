@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input[type='radio']{
+            color: red;
+        }
+        /* 这句果然是不生效的    */
+        [type='radio']input{
+            background-color: yellow;
+        }
+        [disabled]{
+            background-color: red;
+        }
+        [value='20']{
+            border:1px solid red;
+        }
+        [value='10']{
+            border:1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <input type="radio" value="test" title="aaa" />
+
+    <input disabled />
+    <input disabled='' />
+    <input disabled='disabled' />
+    <input disabled='true' />
+    <input disabled='false' />
+
+    <input id='demo' value="20" />
+</body>
+</html>

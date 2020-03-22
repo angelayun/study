@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .\31 -foo { border: 10px dashed; padding: 10px;display: inline-block; }
+        /* 类名和id选择器名字不能以数字开头  下面这样写就直接语法错误了 */
+        /* .2-foo{
+            
+        } */
+        .\32{
+            color: red;
+        }
+        /* 这中间有两个空格 */
+        .\33  em{
+            color: blue;
+        }
+        /* 这里只有一个空格，此条声明不生效 */
+        .\33 em{
+            background-color: aqua;
+        }
+
+        /* 或者如果想只打一个空格，因为怕压缩工具乱压空格的话，可以使用非空格完整表示法 */
+        .\000033  em{
+            display: inline-block;
+        }
+        .中文{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+        <span class="1-foo">颜色是？以数字开头的类选择器竟然生效了</span>
+        <span class="2-foo">颜色是？</span>
+        <span class="2">类名或者ID选择器甚至可以是纯数字</span>
+        <span class="3"><em>如果数字命名的话，存在父子关系，则选择器需要打上两个空格</em>类名或者ID选择器甚至可以是纯数字</span>
+        <div class="中文">试试用中文命名</div>
+        <script>
+            console.log("1".charCodeAt().toString());//31
+        </script>
+</body>
+</html>

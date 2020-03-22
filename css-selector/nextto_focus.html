@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相邻兄弟选择符与:focus伪类交互实例</title>
+    <style>
+        .cs-tips {
+            color: gray;
+            margin-left: 15px;
+            position: absolute;
+            visibility: hidden;
+        }
+
+        :focus+.cs-tips {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    用户名：<input><span class="cs-tips">不超过10个字符</span>
+</body>
+
+</html>

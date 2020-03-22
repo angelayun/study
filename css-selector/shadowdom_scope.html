@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS 选择器的局部作用域</title>
+</head>
+
+<body>
+    <p>我是一个普通的&lt;p&gt;元素，我的背景色是？</p>
+    <div id="hostElement"></div>
+    <script>
+        // 创建 shadow DOM
+        var shadow = hostElement.attachShadow({ mode: 'open' });
+        // 给 shadow DOM 添加文字
+        shadow.innerHTML = '<p>我是由Shadow DOM创建的&lt;p&gt;元素，我的背景色是？</p>';
+        // 添加CSS，文字背景色变成黑色
+        shadow.innerHTML += '<style>p { background-color: #333; color: #fff; }</style>';
+    </script>
+</body>
+
+</html>

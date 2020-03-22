@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        P {
+            padding: 10px;
+            background-color: black;
+        }
+
+        [CLASS] {
+            color: white;
+        }
+
+        /* 这里写i和I都是可以的  表示属性值不区分大小写 */
+        [CLASS~=CONTENT I] {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="content">看一下这个颜色是啥</p>
+</body>
+
+</html>

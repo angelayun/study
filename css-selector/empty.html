@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>如果里面有空格、注释、换行等都无法匹配:empty  但是如果是:before生成的内容则不影响empty的匹配规则 直接无视</title>
+    <style>
+        textarea {
+            vertical-align: top;
+            margin-right: 10px;
+        }
+
+        textarea:not(:empty)+span::before {
+            content: "√";
+            color: green;
+        }
+
+        textarea:not(:placeholder-shown)+span::before {
+            content: "√";
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 如果placeholder设置为“” 也会匹配textarea:not(:placeholder-shown)   但是只要输入空字符串则不会匹配 -->
+    <textarea placeholder=""></textarea><span></span>
+</body>
+
+</html>

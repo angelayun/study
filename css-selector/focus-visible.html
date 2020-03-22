@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .cs-button {
+            background-color: teal;
+            color: #fff;
+            border: 0;
+            padding: .75em 2em;
+        }
+
+        /* 实际开发这里的.focus-better选择器可以省略 */
+        .focus-better :focus:not(:focus-visible) {
+            outline: 0;
+        }
+
+        /* 不确定这个是有啥意义 */
+    </style>
+</head>
+
+<body>
+    <h4>原始状态（点击访问）</h4>
+    <ol class="demical">
+        <li><button class="cs-button">按钮</button></li>
+        <li>
+            <details>
+                <summary>summary元素</summary>
+                <p>Chrome浏览器下点击会出现焦点轮廓。</p>
+            </details>
+        </li>
+        <li>
+            <div tabindex="0">我是设置了<code>tabindex="0"</code>的普通div元素。</div>
+        </li>
+    </ol>
+
+    <h4>:focus-visible优化后（Tab键访问）</h4>
+    <ol class="demical focus-better">
+        <li><button class="cs-button">按钮</button></li>
+        <li>
+            <details>
+                <summary>summary元素</summary>
+                <p>Chrome浏览器下点击不会出现焦点轮廓。</p>
+            </details>
+        </li>
+        <li>
+            <div tabindex="0">我是设置了<code>tabindex="0"</code>的普通div元素。</div>
+        </li>
+    </ol>
+</body>
+
+</html>

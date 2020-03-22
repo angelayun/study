@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>-webkit-伪元素选择器不再导致整行无效</title>
+    <style>
+        div,
+        span::whatever {
+            background-color: black;
+        }
+
+        div,
+        span::-webkit-whatever {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>如果写了一个无效伪元素，常规情况下会让整行声明都无效</div>
+</body>
+
+</html>

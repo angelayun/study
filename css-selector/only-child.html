@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes spin {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .cs-loading {
+            height: 150px;
+            position: relative;
+            text-align: center;
+            /* 与截图无关，截图示意用 */
+            border: 1px dotted;
+        }
+
+        /* 图片和文字同时存在时在中间留点间距 */
+        .cs-loading-img {
+            width: 32px;
+            height: 32px;
+            margin-top: 45px;
+            vertical-align: bottom;
+            animation: spin 1s linear infinite;
+        }
+
+        .cs-loading-p {
+            margin: .5em 0 0;
+            color: gray;
+        }
+
+        /* 只有图片的时候居中绝对定位 */
+        .cs-loading-img:only-child {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        /* 只有文字的时候行号近似垂直居中 */
+        .cs-loading-p:only-child {
+            margin: 0;
+            line-height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1. 只有加载图片 -->
+    <div class="cs-loading">
+        <img src="./image/loading.png" class="cs-loading-img">
+    </div>
+    <!-- 2. 只有加载文字 -->
+    <div class="cs-loading">
+        <p class="cs-loading-p">正在加载中...</p>
+    </div>
+    <!-- 3. 加载图片和加载文字同时存在 -->
+    <div class="cs-loading">
+        <img src="./image/loading.png" class="cs-loading-img">
+        <p class="cs-loading-p">正在加载中...</p>
+    </div>
+</body>
+
+</html>

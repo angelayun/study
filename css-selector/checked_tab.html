@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>checked伪类实现选项卡切换</title>
+    <style>
+        .cs-tab-li {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 5px 10px;
+        }
+
+        :first-child:checked~.cs-tab .cs-tab-li:first-child,
+        :checked+input+.cs-tab .cs-tab-li:nth-of-type(2),
+        :checked+.cs-tab .cs-tab-li:nth-of-type(3) {
+            background-color: deepskyblue;
+            color: #fff;
+        }
+
+        .cs-panel-li {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        :first-child:checked~.cs-panel .cs-panel-li:first-child,
+        :nth-of-type(2):checked~.cs-panel .cs-panel-li:nth-of-type(2),
+        :nth-of-type(3):checked~.cs-panel .cs-panel-li:nth-of-type(3) {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 1200px;">这里随便写点啥，看看会不会有页面滚动效果</div>
+    <div class="cs-tab-x">
+        <input id="tabPanel1" type="radio" name="tab" checked hidden>
+        <input id="tabPanel2" type="radio" name="tab" hidden>
+        <input id="tabPanel3" type="radio" name="tab" hidden>
+        <div class="cs-tab">
+            <label class="cs-tab-li" for="tabPanel1">选项卡1</label>
+            <label class="cs-tab-li" for="tabPanel2">选项卡2</label>
+            <label class="cs-tab-li" for="tabPanel3">选项卡3</label>
+        </div>
+        <div class="cs-panel">
+            <div class="cs-panel-li">面板内容1</div>
+            <div class="cs-panel-li">面板内容2</div>
+            <div class="cs-panel-li">面板内容3</div>
+        </div>
+    </div>
+</body>
+
+</html>

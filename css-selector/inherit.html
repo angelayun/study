@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css样式继承性</title>
+    <style>
+        .lightblue {
+            color: lightblue;
+        }
+
+        .darkblue {
+            color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lightblue">
+        <div class="darkblue">
+            <p>1. 颜色是？</p>
+        </div>
+    </div>
+    <div class="darkblue">
+        <div class="lightblue">
+            <p>2. 颜色是？</p>
+        </div>
+    </div>
+</body>
+
+</html>

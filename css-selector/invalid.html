@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>:invalid伪类验证</title>
+    <style>
+        .cs-input {
+            border: 1px solid gray;
+            padding: 5px;
+            width: 100px;
+        }
+
+        .valid .cs-input:invalid {
+            border-color: red;
+        }
+
+        .valid .cs-input:valid+.cs-valid-tips::before {
+            content: "√";
+            color: green;
+        }
+
+        .valid .cs-input:invalid+.cs-valid-tips::before {
+            content: "不符合要求";
+            color: red;
+        }
+
+        .valid .cs-input:placeholder-shown+.cs-valid-tips::before {
+            content: "尚未输入值";
+        }
+    </style>
+</head>
+
+<body>
+    <!-- novalidate 初始化的时候默认显示这个 -->
+    <form id="csForm" novalidate>
+        <p>
+            验证码：<input class="cs-input" placeholder=" " required pattern="\w{4,6}">
+            <span class="cs-valid-tips"></span>
+        </p>
+        <input type="submit" value="提交">
+    </form>
+    <script>
+        csForm.addEventListener('submit', function (event) {
+            this.classList.add('valid');
+            // 判断表单全部验证通过
+            if (this.checkValidity && this.checkValidity() == true) {
+
+            }
+            event.preventDefault();
+        });
+
+        // IE触发重绘的补丁
+        if (typeof document.msHidden != 'undefined' || !history.pushState) {
+            // IE对于:invalid等伪类只会实时匹配输入框元素自身，而输入框后面的兄弟元素样式并不会重绘
+            // 改变父元素的样式或者设置无关紧要的样式  即可让样式重绘
+            
+            document.addEventListener('input', function (event) {
+                if (event.target && /^input|textarea$/i.test(event.target.tagName)) {
+                    event.target.parentElement.className = event.target.parentElement.className;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

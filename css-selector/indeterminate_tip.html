@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>:indeterminate伪类与单选框组的选择提示</title>
+    <style>
+        [type="radio"] {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* 单选框 */
+        .cs-radio {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid gray;
+            border-radius: 50%;
+            background-color: #fff;
+            box-sizing: border-box;
+            vertical-align: -.5ex;
+            user-select: none;
+            transition: border-color .2s;
+            overflow: hidden;
+        }
+
+        :checked+.cs-radio {
+            border-color: deepskyblue;
+        }
+
+        :checked+.cs-radio::before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            margin: 4px auto 0;
+            border-radius: 50%;
+            background-color: deepskyblue;
+        }
+
+        :indeterminate~.cs-valid-tips::before {
+            content: "您尚未选择任何选项";
+            color: red;
+            font-size: 87.5%;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="radio" id="radio1" name="radio">
+    <label for="radio1" class="cs-radio"></label>
+    <label for="radio1">单选项1</label>
+    <input type="radio" id="radio2" name="radio">
+    <label for="radio2" class="cs-radio"></label>
+    <label for="radio2">单选项2</label>
+    <input type="radio" id="radio3" name="radio">
+    <label for="radio3" class="cs-radio"></label>
+    <label for="radio3">单选项3</label>
+    <!-- 这里显示提示信息 -->
+    <p class="cs-valid-tips"></p>
+</body>
+
+</html>

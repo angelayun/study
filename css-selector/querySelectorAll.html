@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>querySelectorAll里面的选择器是全局特性的--相当于查询my-id的子元素满足在当前页面下div div选择条件的dom</title>
+</head>
+
+<body>
+    <div id="my-id">
+        <div class="lonely"></div>
+        <div class="outer">
+            <div class="inner"></div>
+        </div>
+    </div>
+    <script>
+        console.log(document.querySelectorAll("#my-id div div"));
+        console.log(document.querySelector("#my-id").querySelectorAll("div div"));
+        console.log(document.querySelector("#my-id").querySelectorAll(":scope div div"));
+    </script>
+</body>
+
+</html>
