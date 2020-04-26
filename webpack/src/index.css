@@ -1,0 +1,9 @@
+body{
+    background-color: blue;
+    font-family: 'webfont';
+}
+@font-face {
+    font-family: 'webfont';
+    font-display: swap;
+    src: url('webfont.woff2') format('woff2'); /* iOS 4.1- */
+}
