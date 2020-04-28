@@ -6,10 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:server": "webpack-dev-server --config ./webpack.dev.js",
+    "other_build":"webpack --env.production --config ./webpack.otherbase.js",
+    "other_dev":"webpack --config ./webpack.otherbase.js",
     "dev": "webpack --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.pro.js",
     "watch": "webpack --watch"
   },
+  "sideEffects":["*.css","@babel/polyfill"],
   "keywords": [],
   "author": "liyunhua <liyunhua_angela@163.com> (http://github.com/angelyayun)",
   "license": "MIT",

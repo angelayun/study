@@ -15,7 +15,25 @@ const devConfig = {
     // 为了弄babel 特意写的  其实是应该在base里面的
     entry: {
         // index: './src/bable_index.js'
-        index: './src/react_index.jsx'
+        index: './src/react_index.jsx',
+        // index:'./src/treesharking_index.js',
+    },
+    // optimization: {
+    //     usedExports: true
+    // },
+    optimization: {
+        splitChunks: {
+            chunks:'all',
+            // minChunks:2,
+            automaticNameDelimiter:'_',
+            cacheGroups:{
+                commons:{
+                    test:/(react|react-dom)/,
+                    name:"react_vendors",
+                    chunks:"all"
+                  },
+            }
+        }
     },
     devServer: {
         contentBase: './dist',

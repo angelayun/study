@@ -2,10 +2,16 @@ const path = require("path")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const merge =require('webpack-merge')
-const baseConfig =require('./webpack.base')
+const baseConfig =require('./webpack.otherbase')
 const proConfig = {
     mode: "production",
     devtool:'none',
+        // 为了弄babel 特意写的  其实是应该在base里面的
+        // entry: {
+        //     // index: './src/bable_index.js'
+        //     // index: './src/react_index.jsx',
+        //     index:'./src/treesharking_index.js',
+        // },
     output: {
         // output输出的filename路径必须是绝对路径
         path: path.resolve(__dirname, './dist'),
