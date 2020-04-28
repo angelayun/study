@@ -1,6 +1,7 @@
 body{
     background-color: blue;
     font-family: 'webfont';
+    display: flex;
 }
 @font-face {
     font-family: 'webfont';

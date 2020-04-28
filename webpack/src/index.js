@@ -1,13 +1,30 @@
-// import './index.css'
 import './index.less'
-import logo from './view_webpack_version.png';
-// 此外的logo其实就是生成到的dist目录下对应的ff75ec1d4250c81ce1d6dcb1e7b9b703。png文件
-console.log(logo);
-document.write('hello webpack!为了测试字体特意写几个中文看看--英雄难过美人关，我不是英雄，美人让我过了关。');
 
-var img = new Image();
-img.src = logo;
-img.classList.add("logo"); 
+import counter from "./_counter";
+import number from "./_number";
 
-var root = document.getElementById("root");
-root.append(img);
+
+counter()
+number()
+
+if (module.hot) {
+    module.hot.accept("./_number", function () {
+        document.body.removeChild(document.getElementById("number"));
+        number();
+    });
+}
+
+var btn = document.createElement("button");
+btn.innerHTML = "新增";
+document.body.appendChild(btn);
+
+
+btn.onclick = function () {
+    var div = document.createElement("div");
+    div.innerHTML = "item";
+    document.body.appendChild(div);
+};
+
+
+
+

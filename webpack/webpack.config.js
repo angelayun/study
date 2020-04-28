@@ -2,8 +2,23 @@ const path = require("path")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const webpack = require('webpack')
 module.exports = {
     mode: "development",
+    // devtool:'eval',
+    devtool:'inline-source-map',
+    devServer:{
+         contentBase:'./dist',
+         open:true,
+         port:8081,
+         hotOnly:true,
+         proxy:{
+             "/api":{
+                 target:'http://localhost:9092/',
+             }
+         }
+    },
     entry: {
         index: './src/index.js',
         login: './src/login.js'
@@ -11,8 +26,8 @@ module.exports = {
     output: {
         // output输出的filename路径必须是绝对路径
         path: path.resolve(__dirname, './dist'),
-        // filename: '[name].js'
-        filename: '[name]_[chunkhash:8].js'
+        filename: '[name].js'
+        // filename: '[name]_[chunkhash:8].js'
     },
     module: {
         rules: [
@@ -50,7 +65,8 @@ module.exports = {
                 // 简写的话可以写成如下
                 // use: ['style-loader', ' css-loader', 'less-loader', 'postcss-loader']
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    // MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader',
                     'less-loader',
                     'postcss-loader'
@@ -67,21 +83,23 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: '首页',
             template: "./src/index.html",
-            inject: 'head',
+            inject: true,
             chunks: ['index'],
             filename: 'index.html'
         }),
         new HtmlWebpackPlugin({
             title: '注册',
             template: "./src/index.html",
-            inject: true,
+            
+            inject: 'head',
             chunks: ['login'],
             filename: 'login.html'
         }),
         new MiniCssExtractPlugin({
             filename: '[name]_[contenthash:8].css'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.HotModuleReplacementPlugin()  
     ]
     /* watch: true, //false
     watchOptions: {
