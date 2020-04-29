@@ -3,6 +3,10 @@ import JsxTest from "./components/JsxTest";
 // import StateMgt from "./components/StateMgt";
 // import EventHandle from "./components/EventHandle";
 
+// import ContextTest from './components/ContextTest'
+// import ContextTest from './components/ContextTest2'
+// import HocTest from './components/HocTest';
+import HocTest from './components/HocTest.jsx';
 class Child extends Component {
     constructor(props) {
         super(props);
@@ -32,6 +36,10 @@ class App extends Component {
 
     }
     render () {
+        return <HocTest />
+        // return <ContextTest />;
+    }
+    render1 () {
         return (
             <div>
                 <h1 onClick={this.test}>{this.props.title}</h1>
