@@ -8,8 +8,8 @@ import JsxTest from "./components/JsxTest";
 // import HocTest from './components/HocTest';
 // import HocTest from './components/HocTest.jsx';
 // import HooksTest from './components/HooksTest'
-import HooksContext from './components/HooksContext'
-
+// import HooksContext from './components/HooksContext'
+import ReduxTest from './components/ReduxTest'
 // import Composition from './components/Composition';
 // import RadioTest from './components/RadioTest';
 class Child extends Component {
@@ -41,7 +41,8 @@ class App extends Component {
 
     }
     render () {
-        return <HooksContext />
+        return <ReduxTest />
+        // return <HooksContext />
         // return <HooksTest />
         // return <RadioTest />
         // return <Composition />
