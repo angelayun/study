@@ -1,0 +1,1 @@
+[JavaScript深入之bind的模拟实现](https://juejin.im/post/59093b1fa0bb9f006517b906#heading-2)
